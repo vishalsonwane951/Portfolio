@@ -152,7 +152,7 @@ function Portfolio() {
           <div className="about-info">
             <div className="info-item">
               <span className="info-label">Location</span>
-              <span className="info-value">Viman Nagar, Kharadi, Pune</span>
+              <span className="info-value">Kharadi, Pune</span>
             </div>
             <div className="info-item">
               <span className="info-label">Email</span>
