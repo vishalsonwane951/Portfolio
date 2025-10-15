@@ -5,7 +5,7 @@ function Portfolio() {
 
       // ✅ Certificate URLs
     const certificates = {
-        btech: "/certificates/BTech Final Marksheet.pdf",
+        btech: "/certificates/Convocation26.pdf",
         mern: "/certificates/Python -JBK.pdf",
         python: "/certificates/Python -JBK.pdf",
     };
