@@ -252,7 +252,7 @@ function Portfolio() {
       <section id="projects">
         <h2 className="section-title">Featured Projects</h2>
         <div className="projects-grid">
-          <div className="project-card">
+          {/* <div className="project-card">
             <div className="project-header">
               <div>
                 <h3>Simple Calculator</h3>
@@ -281,7 +281,7 @@ function Portfolio() {
               <a href="https://github.com/ShreyaGagare2710/Calculator-Project.git" target="_blank" className="project-link"><span>→</span> View Demo</a>
               <a href="https://github.com/ShreyaGagare2710/Calculator-Project.git" target="_blank" className="project-link"><span>→</span> Source Code</a>
             </div>
-          </div>
+          </div> */}
           <div className="project-card">
             <div className="project-header">
               <div>
@@ -324,7 +324,7 @@ function Portfolio() {
               <span className="tech-tag">JWT</span>
             </div>
             <div className="project-links">
-              <a href="https://desi-vdesi-tours.netlify.app/" target="_blank" className="project-link"><span>→</span> View Demo</a>
+              <a href="https://desivdesi.netlify.app/" target="_blank" className="project-link"><span>→</span> View Demo</a>
               {/* <a href="#" className="project-link"><span>→</span> Source Code</a> */}
               <div
                 className="dropdown"
