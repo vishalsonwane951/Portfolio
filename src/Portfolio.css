@@ -537,7 +537,7 @@ body {
 .projects-section,
 .education-section,
 .contact-section {
-  padding: 100px ;
+  /* padding: 100px ; */
   position: relative;
 }
 
@@ -639,6 +639,30 @@ body {
   color: var(--accent-green);
   flex-shrink: 0;
 }
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.info-grid > :nth-child(odd) {
+  grid-column: span 1;
+  width: 250px;
+}
+.info-grid > .info-card-wrapper:nth-child(odd) {
+  grid-column: span 1;
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 2,1fr;
+    margin-top: 20px;
+  }
+
+  .info-grid > :nth-child(odd) {
+    grid-column: span 2;
+  }
+}
 
 .info-card {
   background: var(--white);
@@ -649,6 +673,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: 2px;
   transition: var(--transition-base);
 }
 
@@ -854,6 +879,7 @@ body {
   position: relative;
   flex-shrink: 0;
   z-index: 2;
+  
 }
 
 .timeline-icon {
@@ -868,6 +894,10 @@ body {
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
   position: relative;
   z-index: 1;
+}
+
+.education-section .timeline-line {
+  left: 28px;
 }
 
 .timeline-icon i {
@@ -1115,14 +1145,20 @@ body {
 
 .education-section .timeline-icon.degree {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 60px;
+  height: 60px;
 }
 
 .education-section .timeline-icon.mern {
   background: linear-gradient(135deg, #4dabf7 0%, #339af0 100%);
+   width: 60px;
+  height: 60px;
 }
 
 .education-section .timeline-icon.python {
   background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+   width: 60px;
+  height: 60px;
 }
 
 .education-year {
@@ -1135,6 +1171,9 @@ body {
   font-weight: 700;
   margin-bottom: 1.25rem;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+.education-section .timeline-content {
+  margin-left: 20px;
 }
 
 .timeline-content h4 {
@@ -1396,6 +1435,10 @@ textarea.form-control {
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
 }
 
+.container {
+  width: auto;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: var(--dark);
@@ -1548,12 +1591,21 @@ textarea.form-control {
     transform: translateY(0);
   }
 }
-
+@media (max-width: 1200px) {
+  .info-grid {
+    margin-top: 25px;
+  }
+  
+}
 /* ===== RESPONSIVE ===== */
-@media (max-width: 991px) {
+@media (max-width:991px) {
   .visitor-counter-badge {
     top: 10px;
     right: 10px;
+  }
+
+  .info-grid {
+    margin-top: 25px;
   }
   
   .counter-content {
@@ -1662,26 +1714,44 @@ textarea.form-control {
   
   /* Mobile Timeline Layout */
   .timeline-line {
-    left: 20px;
-    width: 3px;
+    left: 23px;
+    transform: none;
   }
+
+  .timeline-line.education{
+    margin-left: 19px;
+    transform: none;
+  }
+
+ 
   
-  .timeline-item {
+   .timeline-item {
+    display: flex;
+    align-items: flex-start;
     gap: 1rem;
+  }
+  .timeline-content {
+    width: 100%;
+    padding-left: 1rem;
   }
   
   .timeline-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   
   .timeline-icon i {
     font-size: 1.25rem;
   }
   
-  .education-section .timeline-icon {
+  .education-section .timeline-icon.degree, .education-section .timeline-icon.mern ,.education-section .timeline-icon.python{
     width: 50px;
     height: 50px;
+  }
+
+  .education-section .timeline-line {
+    left: 4px;
+     
   }
   
   .education-section .timeline-icon i {
@@ -1698,7 +1768,7 @@ textarea.form-control {
   
   .timeline-content::before {
     top: 20px;
-    left: -8px;
+    left: 8px;
     width: 16px;
     height: 16px;
   }
@@ -1742,6 +1812,27 @@ textarea.form-control {
   .hero-title {
     font-size: 2rem;
   }
+   .info-grid {
+    grid-template-columns: 1fr;   /* single column */
+    gap: 1rem;
+  }
+
+  /* Disable wide cards on mobile */
+  .info-grid > .info-card-wrapper {
+    grid-column: span 1;
+      width: 100%;
+  }
+
+  .info-card {
+    padding: 14px;
+  }
+
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
   
   .hero-subtitle {
     font-size: 1rem;
@@ -1749,6 +1840,11 @@ textarea.form-control {
   
   .section-title {
     font-size: 1.75rem;
+  }
+
+  .card-content {
+    margin-top: 25px;
+
   }
   
   .hero-stats {
@@ -1760,21 +1856,25 @@ textarea.form-control {
   }
   
   .timeline-line {
-    left: 15px;
+    left: 18px;
   }
   
   .timeline-icon {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
   
   .timeline-icon i {
     font-size: 1rem;
   }
   
-  .education-section .timeline-icon {
+  .education-section .timeline-icon.degree, .education-section .timeline-icon.mern ,.education-section .timeline-icon.python{
     width: 40px;
     height: 40px;
+  }
+
+  .education-section .timeline-line {
+    left: 0px;
   }
   
   .education-section .timeline-icon i {

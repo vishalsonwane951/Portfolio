@@ -28,17 +28,41 @@ const projectsData = [
     featured: false,
     icon: "bi-cart"
   },
-  {
-    title: "Book Inventory Management System",
-    description: "Comprehensive inventory system with CRUD operations, advanced search, categorization, and reporting features. Includes user authentication and real-time updates.",
-    skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Bootstrap"],
-    progress: 60,
-    status: 'In Development',
-    projectLink: "https://book-inventory-management-system-pink.vercel.app/",
-    githubLink: ["https://github.com/vishalsonwane951/Book-Inventory-Management-System-Frontend", "https://github.com/vishalsonwane951/Book-Inventory-Management-System-Backend"],
-    featured: false,
-    icon: "bi-book"
-  }
+    {
+      title: "Book Inventory Management System",
+      description: "Comprehensive inventory system with CRUD operations, advanced search, categorization, and reporting features. Includes user authentication and real-time updates.",
+      skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Bootstrap"],
+      progress: 60,
+      status: 'In Development',
+      projectLink: "https://book-inventory-management-system-pink.vercel.app/",
+      githubLink: ["https://github.com/vishalsonwane951/Book-Inventory-Management-System-Frontend", "https://github.com/vishalsonwane951/Book-Inventory-Management-System-Backend"],
+      featured: false,
+      icon: "bi-book"
+    }
+  ];
+  
+  const infoItems = [
+    { icon: "bi-geo-alt-fill", label: "Location", value: "Kharadi, Pune" },
+    {
+      icon: "bi-envelope-fill",
+      label: "Email",
+      value: "vishalsonwane951@gmail.com",
+      link: "mailto:vishalsonwane951@gmail.com",
+    },
+    {
+      icon: "bi-phone-fill",
+      label: "Phone",
+      value: "+91 7888251550",
+      link: "tel:+917888251550",
+    },
+    { icon: "bi-globe", label: "Languages", value: "English, Marathi, Hindi" },
+    { icon: "bi-flag-fill", label: "Nationality", value: "Indian" },
+    {
+      icon: "bi-briefcase-fill",
+      label: "Status",
+      value: "Open to Work",
+      badge: true,
+    },
 ];
 
 function Portfolio() {
@@ -173,7 +197,7 @@ function Portfolio() {
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-background">
-          <div className="hero-gradient"></div>
+          <div className="hero-gradient dark"></div>
           <div className="floating-shapes">
             <div className="shape shape-1"></div>
             <div className="shape shape-2"></div>
@@ -231,7 +255,7 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="col-lg-5 d-none d-lg-block">
+            <div className="col-lg-5 d-lg-block">
               <div className="hero-card">
                 <div className="card-glow"></div>
                 <div className="card-content">
@@ -261,100 +285,86 @@ function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="about-section ">
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-subtitle">Get To Know Me</span>
-            <h2 className="section-title">About <span className="gradient-text">Me</span></h2>
-            <div className="title-underline"></div>
-          </div>
+       <section id="about" className="about-section">
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-header text-center">
+          <span className="section-subtitle">Get To Know Me</span>
+          <h2 className="section-title">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          <div className="title-underline"></div>
+        </div>
 
-          <div className="row align-items-center gy-4">
-            <div className="col-lg-6">
-              <div className="about-card">
-                <div className="card-icon">
-                  <i className="bi bi-person-badge-fill"></i>
+        <div className="row align-items-center gy-4">
+          {/* LEFT SIDE */}
+          <div className="col-lg-6">
+            <div className="about-card">
+              <div className="card-icon">
+                <i className="bi bi-person-badge-fill"></i>
+              </div>
+
+              <h3>Full Stack Developer</h3>
+
+              <p className="about-text">
+                Versatile developer with expertise in Python and JavaScript
+                technologies. Skilled in building scalable applications using
+                Django and the MERN stack. Strong foundation in software design,
+                REST API development, and database management. Committed to clean
+                code, performance optimization, and exceptional user experiences.
+              </p>
+
+              <div className="row mt-4">
+                <div className="col-md-6">
+                  <ul className="feature-list">
+                    <li><i className="bi bi-check-circle-fill"></i> Responsive Design</li>
+                    <li><i className="bi bi-check-circle-fill"></i> REST APIs</li>
+                    <li><i className="bi bi-check-circle-fill"></i> Database Management</li>
+                  </ul>
                 </div>
-                <h3>Full Stack Developer</h3>
-                <p className="about-text">
-                  Versatile developer with expertise in Python and JavaScript technologies.
-                  Skilled in building scalable applications using Django and MERN stack.
-                  Strong foundation in software design, REST API development, and database management.
-                  Committed to clean code, performance optimization, and exceptional user experiences.
-                </p>
 
-                <div className="row mt-4">
-                  <div className="col-md-6">
-                    <ul className="feature-list">
-                      <li>
-                        <i className="bi bi-check-circle-fill"></i>
-                        <span>Responsive Design</span>
-                      </li>
-                      <li>
-                        <i className="bi bi-check-circle-fill"></i>
-                        <span>REST APIs</span>
-                      </li>
-                      <li>
-                        <i className="bi bi-check-circle-fill"></i>
-                        <span>Database Management</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-md-6">
-                    <ul className="feature-list">
-                      <li>
-                        <i className="bi bi-check-circle-fill"></i>
-                        <span>Performance Optimization</span>
-                      </li>
-                      <li>
-                        <i className="bi bi-check-circle-fill"></i>
-                        <span>Clean Code</span>
-                      </li>
-                      <li>
-                        <i className="bi bi-check-circle-fill"></i>
-                        <span>Agile Development</span>
-                      </li>
-                    </ul>
-                  </div>
+                <div className="col-md-6">
+                  <ul className="feature-list">
+                    <li><i className="bi bi-check-circle-fill"></i> Performance Optimization</li>
+                    <li><i className="bi bi-check-circle-fill"></i> Clean Code</li>
+                    <li><i className="bi bi-check-circle-fill"></i> Agile Development</li>
+                  </ul>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="col-lg-6">
-              <div className="row g-4">
-                {[
-                  { icon: 'bi-geo-alt-fill', label: 'Location', value: 'Kharadi, Pune' },
-                  { icon: 'bi-envelope-fill', label: 'Email', value: 'vishalsonwane951@gmail.com', link: 'mailto:vishalsonwane951@gmail.com' },
-                  { icon: 'bi-phone-fill', label: 'Phone', value: '+91 7888251550', link: 'tel:+917888251550' },
-                  { icon: 'bi-globe', label: 'Languages', value: 'English, Marathi, Hindi' },
-                  { icon: 'bi-flag-fill', label: 'Nationality', value: 'Indian' },
-                  { icon: 'bi-briefcase-fill', label: 'Status', value: 'Open to Work', badge: true }
-                ].map((item, idx) => (
-                  <div className="col-md-6" key={idx}>
-                    <div className="info-card">
-                      <div className="info-icon">
-                        <i className={`bi ${item.icon}`}></i>
-                      </div>
-                      <div className="info-content">
-                        <span className="info-label">{item.label}</span>
-                        {item.link ? (
-                          <a href={item.link} className="info-value">
-                            {item.value}
-                          </a>
-                        ) : item.badge ? (
-                          <span className="status-badge">{item.value}</span>
-                        ) : (
-                          <span className="info-value">{item.value}</span>
-                        )}
-                      </div>
+          {/* RIGHT SIDE */}
+          <div className="col-lg-6">
+            <div className="info-grid">
+              {infoItems.map((item, idx) => (
+                <div className="info-card-wrapper" key={idx}>
+                  <div className="info-card">
+                    <div className="info-icon">
+                      <i className={`bi ${item.icon}`}></i>
+                    </div>
+
+                    <div className="info-content">
+                      <span className="info-label">{item.label}</span>
+
+                      {item.link ? (
+                        <a href={item.link} className="info-value">
+                          {item.value}
+                        </a>
+                      ) : item.badge ? (
+                        <span className="status-badge">{item.value}</span>
+                      ) : (
+                        <span className="info-value">{item.value}</span>
+                      )}
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Skills Section */}
       <section id="skills" className="skills-section ">
@@ -392,7 +402,7 @@ function Portfolio() {
                 skills: ["OOP", "Data Structures", "Algorithms", "SDLC", "Agile", "REST"]
               }
             ].map((category, idx) => (
-              <div className="col-lg-3 col-md-6" key={idx}>
+              <div className="col-lg-6 col-md-6 mb-3" key={idx}>
                 <div className={`skill-card skill-card-${category.color}`}>
                   <div className="skill-header">
                     <div className="skill-icon">
@@ -527,7 +537,7 @@ function Portfolio() {
           </div>
 
           <div className="timeline-container">
-            <div className="timeline-line"></div>
+            <div className="timeline-line education"></div>
 
             <div className="timeline-item">
               <div className="timeline-marker">
@@ -621,11 +631,11 @@ function Portfolio() {
           </div>
 
           <div className="row justify-content-center">
-            <div className="col-lg-10">
+            <div className="col-lg-10 col-md-12 ">
               <div className="contact-wrapper">
                 <div className="row g-0">
-                  <div className="col-lg-5">
-                    <div className="contact-info">
+                  <div className="col-lg-5 col-md-12 "> 
+                    <div className="contact-info ">
                       <h3>Contact Information</h3>
                       <p className="contact-description">
                         Feel free to reach out for collaborations, opportunities, or just a friendly chat!
@@ -671,7 +681,7 @@ function Portfolio() {
                     </div>
                   </div>
 
-                  <div className="col-lg-7">
+                  <div className="col-lg-7 align-center">
                     <div className="contact-form">
                       <h3>Send Me a Message</h3>
                       <form>
@@ -741,7 +751,7 @@ function Portfolio() {
               </div>
               <div>
                 <h4>Vishal Sonwane</h4>
-                <p>Full Stack Developer</p>
+                <p className="mt-3 mb-3">Full Stack Developer</p>
               </div>
             </div>
 
