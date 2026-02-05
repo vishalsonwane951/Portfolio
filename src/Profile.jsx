@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
 import "./Portfolio.css";
+
+
+const VISITOR_KEY = "portfolio_visitors";
+const SESSION_KEY = "visitor_session_active";
 
 const projectsData = [
   {
@@ -44,7 +46,7 @@ const projectsData = [
   const infoItems = [
     { icon: "bi-geo-alt-fill", label: "Location", value: "Kharadi, Pune" },
     {
-      icon: "bi-envelope-fill",
+      icon: "bi-envelope-arrow-up",
       label: "Email",
       value: "vishalsonwane951@gmail.com",
       link: "mailto:vishalsonwane951@gmail.com",
@@ -73,11 +75,18 @@ function Portfolio() {
   const [isVisible, setIsVisible] = useState({});
 
   // Visitor counter
+  
   useEffect(() => {
-    const interval = setInterval(() => {
-      setVisitorCount(prev => prev + Math.floor(Math.random() * 5));
-    }, 30000);
-    return () => clearInterval(interval);
+    let count = Number(localStorage.getItem(VISITOR_KEY)) || 0;
+
+    // Count visitor only once per session
+    if (!sessionStorage.getItem(SESSION_KEY)) {
+      count += 1;
+      localStorage.setItem(VISITOR_KEY, count);
+      sessionStorage.setItem(SESSION_KEY, "true");
+    }
+
+    setVisitorCount(count);
   }, []);
 
   // Scroll effects
@@ -149,15 +158,7 @@ function Portfolio() {
   return (
     <div className="portfolio-wrapper">
       {/* Visitor Counter Badge */}
-      <div className="visitor-counter-badge">
-        <div className="counter-content">
-          <i className="bi bi-eye-fill"></i>
-          <div className="counter-info">
-            <span className="counter-number">{visitorCount.toLocaleString()}</span>
-            <span className="counter-label">visitors</span>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Navigation */}
       <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}>
@@ -174,7 +175,7 @@ function Portfolio() {
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <span className="navbar-toggler-icon navbar-dark"></span>
+            <span className="navbar-toggler-icon"><i className="bi bi-list"></i></span>
           </button>
 
           <div className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show' : ''}`}>
@@ -192,7 +193,18 @@ function Portfolio() {
             </ul>
           </div>
         </div>
+        <div className="visitor-counter-badge">
+        <div className="counter-content">
+          <i className="bi bi-eye-fill"></i>
+          <div className="counter-info">
+            <span className="counter-number">{visitorCount.toLocaleString()}</span>
+            <span className="counter-label">visitors</span>
+          </div>
+        </div>
+      </div>
       </nav>
+
+      
 
       {/* Hero Section */}
       <section id="home" className="hero-section">
@@ -643,7 +655,7 @@ function Portfolio() {
 
                       <div className="contact-items">
                         {[
-                          { icon: 'bi-envelope-fill', text: 'vishalsonwane951@gmail.com', link: 'mailto:vishalsonwane951@gmail.com' },
+                          { icon: 'bi bi-envelope-arrow-up', text: 'vishalsonwane951@gmail.com', link: 'mailto:vishalsonwane951@gmail.com' },
                           { icon: 'bi-phone-fill', text: '+91 7888251550', link: 'tel:+917888251550' },
                           { icon: 'bi-geo-alt-fill', text: 'Kharadi, Pune, India' },
                         ].map((item, idx) => (
@@ -672,7 +684,7 @@ function Portfolio() {
                           <i className="bi bi-linkedin"></i>
                         </a>
                         <a href="mailto:vishalsonwane951@gmail.com" className="social-link">
-                          <i className="bi bi-envelope-fill"></i>
+                          <i className="bi bi-envelope-arrow-up"></i>
                         </a>
                         <a href="tel:+917888251550" className="social-link">
                           <i className="bi bi-telephone-fill"></i>
@@ -694,7 +706,7 @@ function Portfolio() {
                             type="text"
                             id="name"
                             className="form-control"
-                            placeholder="John Doe"
+                            placeholder="Enter your Name"
                             required
                           />
                         </div>
@@ -708,7 +720,7 @@ function Portfolio() {
                             type="email"
                             id="email"
                             className="form-control"
-                            placeholder="john@example.com"
+                            placeholder="Enter your Email"
                             required
                           />
                         </div>
@@ -722,7 +734,7 @@ function Portfolio() {
                             id="message"
                             className="form-control"
                             rows="5"
-                            placeholder="Tell me about your project..."
+                            placeholder="Enter your Message"
                             required
                           ></textarea>
                         </div>
@@ -764,7 +776,7 @@ function Portfolio() {
                   <i className="bi bi-linkedin"></i>
                 </a>
                 <a href="mailto:vishalsonwane951@gmail.com">
-                  <i className="bi bi-envelope-fill"></i>
+                  <i className="bi bi-envelope-arrow-up"></i>
                 </a>
                 <a href="tel:+917888251550">
                   <i className="bi bi-telephone-fill"></i>
