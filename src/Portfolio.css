@@ -927,7 +927,7 @@ body {
   transition: var(--transition-base);
   position: relative;
   overflow: hidden;
-  padding: ;
+  
 }
 
 .timeline-content::before {
