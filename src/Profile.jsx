@@ -44,7 +44,7 @@ const projectsData = [
   ];
   
   const infoItems = [
-    { icon: "bi-geo-alt-fill", label: "Location", value: "Kharadi, Pune" },
+    { icon: "bi-geo-alt-fill", label: "Location", value: "Karve Nagar, Pune" },
     {
       icon: "bi-envelope-arrow-up",
       label: "Email",
@@ -232,8 +232,7 @@ function Portfolio() {
                 </h1>
 
                 <p className="hero-subtitle">
-                  MERN & Python Stack Developer crafting scalable, innovative web solutions.
-                  Transforming ideas into elegant, high-performance applications.
+                  MERN & Python Full-Stack Developer building scalable, high-performance web applications. Passionate about transforming ideas into clean, reliable digital solutions.
                 </p>
 
                 <div className="hero-buttons">
@@ -250,9 +249,9 @@ function Portfolio() {
                 {/* Stats */}
                 <div className="hero-stats">
                   {[
-                    { icon: 'bi-briefcase-fill', value: '3+', label: 'Projects' },
+                    { icon: 'bi-briefcase-fill', value: '3', label: 'Projects' },
                     { icon: 'bi-award-fill', value: '2', label: 'Certifications' },
-                    { icon: 'bi-clock-history', value: '1+', label: 'Year Exp' },
+                    { icon: 'bi-clock-history', value: '0.6', label: 'Year Exp' },
                     { icon: 'bi-tools', value: '10+', label: 'Skills' }
                   ].map((stat, idx) => (
                     <div className="stat-item" key={idx}>

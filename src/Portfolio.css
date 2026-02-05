@@ -1812,6 +1812,9 @@ textarea.form-control {
   .hero-title {
     font-size: 2rem;
   }
+  .hero-badge {
+    margin-top: 17px;
+  }
    .info-grid {
     grid-template-columns: 1fr;   /* single column */
     gap: 1rem;
