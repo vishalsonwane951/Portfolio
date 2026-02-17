@@ -1,6 +1,5 @@
-/* ===== CSS VARIABLES ===== */
 :root {
-  /* Primary Colors */
+  
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --primary-color: #667eea;
   --primary-dark: #5568d3;
@@ -42,7 +41,6 @@
   --radius-xl: 24px;
 }
 
-/* ===== GLOBAL STYLES ===== */
 * {
   margin: 0;
   padding: 0;
@@ -56,8 +54,6 @@ body {
   overflow-x: hidden;
   background: var(--white);
 }
-
-/* ===== UTILITIES ===== */
 .gradient-text {
   background: var(--primary-gradient);
   -webkit-background-clip: text;
@@ -77,7 +73,7 @@ body {
   transform: translateY(0);
 }
 
-/* ===== VISITOR COUNTER ===== */
+/*  COUNTER */
 .visitor-counter-badge {
   position: relative;
   top: 0px;
@@ -128,7 +124,6 @@ body {
   opacity: 0.8;
 }
 
-/* ===== NAVIGATION ===== */
 .navbar {
   background: rgba(255, 255, 255, 0.95) !important;
   -webkit-backdrop-filter: blur(10px);
@@ -232,7 +227,7 @@ body {
 
 
 
-/* ===== HERO SECTION ===== */
+/*  HERO SECTION */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -541,7 +536,6 @@ body {
   color: var(--accent-blue);
 }
 
-/* ===== SECTIONS ===== */
 .about-section,
 .skills-section,
 .projects-section,
@@ -585,7 +579,7 @@ body {
   margin: 0 auto;
 }
 
-/* ===== ABOUT SECTION ===== */
+/*  ABOUT SECTION  */
 .about-card {
   background: var(--white);
   padding: 3rem;
@@ -745,7 +739,7 @@ body {
   font-weight: 600;
 }
 
-/* ===== SKILLS SECTION ===== */
+/*  SKILLS SECTION  */
 .skill-card {
   background: var(--white);
   padding: 2rem;
@@ -847,8 +841,7 @@ body {
   color: var(--white);
   transform: scale(1.05);
 }
-
-/* ===== PROJECTS SECTION - VERTICAL TIMELINE ===== */
+/*  PROJECTS SECTION - VERTICAL TIMELINE  */
 .projects-section {
   background: var(--light-bg);
 }
@@ -1129,7 +1122,7 @@ body {
   color: var(--primary-color);
 }
 
-/* ===== EDUCATION SECTION - VERTICAL TIMELINE ===== */
+/*  EDUCATION SECTION - VERTICAL TIMELINE  */
 .education-section .timeline-item .timeline-icon {
   width: 70px;
   height: 70px;
@@ -1258,7 +1251,7 @@ body {
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
 }
 
-/* ===== CONTACT SECTION ===== */
+/*  CONTACT SECTION  */
 .contact-section {
   background: var(--light-bg);
 }
@@ -1439,7 +1432,7 @@ textarea.form-control {
   width: auto;
 }
 
-/* ===== FOOTER ===== */
+/*  FOOTER  */
 .footer {
   background: var(--dark);
   color: var(--white);
@@ -1536,7 +1529,7 @@ textarea.form-control {
   color: var(--primary-color);
 }
 
-/* ===== ANIMATIONS ===== */
+/*  ANIMATIONS  */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1597,7 +1590,7 @@ textarea.form-control {
   }
   
 }
-/* ===== RESPONSIVE ===== */
+/*  RESPONSIVE  */
 @media (max-width:991px) {
   .visitor-counter-badge {
     top: 10px;
@@ -1816,11 +1809,10 @@ textarea.form-control {
     margin-top: 17px;
   }
    .info-grid {
-    grid-template-columns: 1fr;   /* single column */
+    grid-template-columns: 1fr;   
     gap: 1rem;
   }
 
-  /* Disable wide cards on mobile */
   .info-grid > .info-card-wrapper {
     grid-column: span 1;
       width: 100%;

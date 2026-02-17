@@ -23,48 +23,61 @@ const projectsData = [
     title: "E-Commerce API",
     description: "Complete e-commerce solution with user authentication, product management, shopping cart, and order processing. Features role-based access control and payment integration.",
     skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux", "JWT"],
-    progress: 75,
+    progress: 100,
     status: 'Backend Completed',
     projectLink: "",
     githubLink: ["https://github.com/vishalsonwane951/E-CommerceAPI"],
-    featured: false,
+    featured: true,
     icon: "bi-cart"
   },
-    {
-      title: "Book Inventory Management System",
-      description: "Comprehensive inventory system with CRUD operations, advanced search, categorization, and reporting features. Includes user authentication and real-time updates.",
-      skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Bootstrap"],
-      progress: 60,
-      status: 'In Development',
-      projectLink: "https://book-inventory-management-system-pink.vercel.app/",
-      githubLink: ["https://github.com/vishalsonwane951/Book-Inventory-Management-System-Frontend", "https://github.com/vishalsonwane951/Book-Inventory-Management-System-Backend"],
-      featured: false,
-      icon: "bi-book"
-    }
-  ];
-  
-  const infoItems = [
-    { icon: "bi-geo-alt-fill", label: "Location", value: "Karve Nagar, Pune" },
-    {
-      icon: "bi-envelope-arrow-up",
-      label: "Email",
-      value: "vishalsonwane951@gmail.com",
-      link: "mailto:vishalsonwane951@gmail.com",
-    },
-    {
-      icon: "bi-phone-fill",
-      label: "Phone",
-      value: "+91 7888251550",
-      link: "tel:+917888251550",
-    },
-    { icon: "bi-globe", label: "Languages", value: "English, Marathi, Hindi" },
-    { icon: "bi-flag-fill", label: "Nationality", value: "Indian" },
-    {
-      icon: "bi-briefcase-fill",
-      label: "Status",
-      value: "Open to Work",
-      badge: true,
-    },
+  {
+    title: "Book Inventory Management System",
+    description: "Comprehensive inventory system with CRUD operations, advanced search, categorization, and reporting features. Includes user authentication and real-time updates.",
+    skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Bootstrap"],
+    progress: 60,
+    status: 'In CI/CD',
+    projectLink: "https://book-inventory-management-system-pink.vercel.app/",
+    githubLink: ["https://github.com/vishalsonwane951/Book-Inventory-Management-System-Frontend", "https://github.com/vishalsonwane951/Book-Inventory-Management-System-Backend"],
+    featured: false,
+    icon: "bi-book"
+  },
+
+  {
+    title: "E-Commerce Mobile Application (Enhanced UI)",
+    description: "A modern and fully functional mobile e-commerce application built with React Native and Expo. Features an enhanced user interface, improved layout design, smooth navigation, and complete cart functionality for an optimized user experience.",
+    skills: ["React Native", "Expo", "JavaScript", "Context API", "UI/UX Design"],
+    progress: 80,
+    status: "In CI/CD",
+    projectLink: "https://expo.dev/artifacts/eas/obMGe16tsz48N47Pf8DHoJ.apk",
+    githubLink: ["https://github.com/vishalsonwane951/E-Commerce-Mobile-Application"],
+    featured: false,
+    icon: "bi-phone"
+
+  }
+];
+
+const infoItems = [
+  { icon: "bi-geo-alt-fill", label: "Location", value: "Karve Nagar, Pune" },
+  {
+    icon: "bi-envelope-arrow-up",
+    label: "Email",
+    value: "vishalsonwane951@gmail.com",
+    link: "mailto:vishalsonwane951@gmail.com",
+  },
+  {
+    icon: "bi-phone-fill",
+    label: "Phone",
+    value: "+91 7888251550",
+    link: "tel:+917888251550",
+  },
+  { icon: "bi-globe", label: "Languages", value: "English, Marathi, Hindi" },
+  { icon: "bi-flag-fill", label: "Nationality", value: "Indian" },
+  {
+    icon: "bi-briefcase-fill",
+    label: "Status",
+    value: "Open to Work",
+    badge: true,
+  },
 ];
 
 function Portfolio() {
@@ -75,7 +88,7 @@ function Portfolio() {
   const [isVisible, setIsVisible] = useState({});
 
   // Visitor counter
-  
+
   useEffect(() => {
     let count = Number(localStorage.getItem(VISITOR_KEY)) || 0;
 
@@ -158,7 +171,7 @@ function Portfolio() {
   return (
     <div className="portfolio-wrapper">
       {/* Visitor Counter Badge */}
-      
+
 
       {/* Navigation */}
       <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}>
@@ -194,17 +207,17 @@ function Portfolio() {
           </div>
         </div>
         <div className="visitor-counter-badge">
-        <div className="counter-content">
-          <i className="bi bi-eye-fill"></i>
-          <div className="counter-info">
-            <span className="counter-number">{visitorCount.toLocaleString()}</span>
-            <span className="counter-label">visitors</span>
+          <div className="counter-content">
+            <i className="bi bi-eye-fill"></i>
+            <div className="counter-info">
+              <span className="counter-number">{visitorCount.toLocaleString()}</span>
+              <span className="counter-label">visitors</span>
+            </div>
           </div>
         </div>
-      </div>
       </nav>
 
-      
+
 
       {/* Hero Section */}
       <section id="home" className="hero-section">
@@ -296,86 +309,86 @@ function Portfolio() {
       </section>
 
       {/* About Section */}
-       <section id="about" className="about-section">
-      <div className="container">
-        {/* Section Header */}
-        <div className="section-header text-center">
-          <span className="section-subtitle">Get To Know Me</span>
-          <h2 className="section-title">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <div className="title-underline"></div>
-        </div>
-
-        <div className="row align-items-center gy-4">
-          {/* LEFT SIDE */}
-          <div className="col-lg-6">
-            <div className="about-card">
-              <div className="card-icon">
-                <i className="bi bi-person-badge-fill"></i>
-              </div>
-
-              <h3>Full Stack Developer</h3>
-
-              <p className="about-text">
-                Versatile developer with expertise in Python and JavaScript
-                technologies. Skilled in building scalable applications using
-                Django and the MERN stack. Strong foundation in software design,
-                REST API development, and database management. Committed to clean
-                code, performance optimization, and exceptional user experiences.
-              </p>
-
-              <div className="row mt-4">
-                <div className="col-md-6">
-                  <ul className="feature-list">
-                    <li><i className="bi bi-check-circle-fill"></i> Responsive Design</li>
-                    <li><i className="bi bi-check-circle-fill"></i> REST APIs</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Database Management</li>
-                  </ul>
-                </div>
-
-                <div className="col-md-6">
-                  <ul className="feature-list">
-                    <li><i className="bi bi-check-circle-fill"></i> Performance Optimization</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Clean Code</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Agile Development</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+      <section id="about" className="about-section">
+        <div className="container">
+          {/* Section Header */}
+          <div className="section-header text-center">
+            <span className="section-subtitle">Get To Know Me</span>
+            <h2 className="section-title">
+              About <span className="gradient-text">Me</span>
+            </h2>
+            <div className="title-underline"></div>
           </div>
 
-          {/* RIGHT SIDE */}
-          <div className="col-lg-6">
-            <div className="info-grid">
-              {infoItems.map((item, idx) => (
-                <div className="info-card-wrapper" key={idx}>
-                  <div className="info-card">
-                    <div className="info-icon">
-                      <i className={`bi ${item.icon}`}></i>
-                    </div>
+          <div className="row align-items-center gy-4">
+            {/* LEFT SIDE */}
+            <div className="col-lg-6">
+              <div className="about-card">
+                <div className="card-icon">
+                  <i className="bi bi-person-badge-fill"></i>
+                </div>
 
-                    <div className="info-content">
-                      <span className="info-label">{item.label}</span>
+                <h3>Full Stack Developer</h3>
 
-                      {item.link ? (
-                        <a href={item.link} className="info-value">
-                          {item.value}
-                        </a>
-                      ) : item.badge ? (
-                        <span className="status-badge">{item.value}</span>
-                      ) : (
-                        <span className="info-value">{item.value}</span>
-                      )}
-                    </div>
+                <p className="about-text">
+                  Versatile developer with expertise in Python and JavaScript
+                  technologies. Skilled in building scalable applications using
+                  Django and the MERN stack. Strong foundation in software design,
+                  REST API development, and database management. Committed to clean
+                  code, performance optimization, and exceptional user experiences.
+                </p>
+
+                <div className="row mt-4">
+                  <div className="col-md-6">
+                    <ul className="feature-list">
+                      <li><i className="bi bi-check-circle-fill"></i> Responsive Design</li>
+                      <li><i className="bi bi-check-circle-fill"></i> REST APIs</li>
+                      <li><i className="bi bi-check-circle-fill"></i> Database Management</li>
+                    </ul>
+                  </div>
+
+                  <div className="col-md-6">
+                    <ul className="feature-list">
+                      <li><i className="bi bi-check-circle-fill"></i> Performance Optimization</li>
+                      <li><i className="bi bi-check-circle-fill"></i> Clean Code</li>
+                      <li><i className="bi bi-check-circle-fill"></i> Agile Development</li>
+                    </ul>
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* RIGHT SIDE */}
+            <div className="col-lg-6">
+              <div className="info-grid">
+                {infoItems.map((item, idx) => (
+                  <div className="info-card-wrapper" key={idx}>
+                    <div className="info-card">
+                      <div className="info-icon">
+                        <i className={`bi ${item.icon}`}></i>
+                      </div>
+
+                      <div className="info-content">
+                        <span className="info-label">{item.label}</span>
+
+                        {item.link ? (
+                          <a href={item.link} className="info-value">
+                            {item.value}
+                          </a>
+                        ) : item.badge ? (
+                          <span className="status-badge">{item.value}</span>
+                        ) : (
+                          <span className="info-value">{item.value}</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* Skills Section */}
       <section id="skills" className="skills-section ">
@@ -392,19 +405,19 @@ function Portfolio() {
                 title: "Backend Development",
                 icon: "bi-server",
                 color: "blue",
-                skills: ["Node.js", "Express.js", "Python", "Django", "REST APIs", "MVC"]
+                skills: ["Node.js", "Express.js", "Python", "Django", "REST APIs", "MVC", "JWT Authentication"]
               },
               {
                 title: "Frontend Development",
                 icon: "bi-palette-fill",
                 color: "purple",
-                skills: ["React.js", "JavaScript", "HTML5", "CSS3", "Bootstrap", "EJS"]
+                skills: ["React.js", "React Native", "JavaScript","Expo", "HTML5", "CSS3","Tailwind CSS", "Bootstrap", "EJS"]
               },
               {
                 title: "Database & Tools",
                 icon: "bi-database-fill",
                 color: "green",
-                skills: ["MongoDB", "Mongoose", "Git", "GitHub", "Postman", "VS Code"]
+                skills: ["MongoDB", "Mongoose", "Git", "GitHub", "Postman", "npm", "React Route","VS Code"]
               },
               {
                 title: "Core Concepts",
@@ -493,11 +506,19 @@ function Portfolio() {
                         rel="noopener noreferrer"
                         className="project-btn btn-primary"
                       >
-                        <i className="bi bi-box-arrow-up-right"></i>
-                        <span>Live Demo</span>
+                        {project.skills?.includes("React Native") ? (
+                          <>
+                            <i className="bi bi-android2"></i>
+                            <span>Download APK</span>
+                          </>
+                        ) : (
+                          <>
+                            <i className="bi bi-box-arrow-up-right"></i>
+                            <span>Live Demo</span>
+                          </>
+                        )}
                       </a>
                     )}
-
                     {project.githubLink && project.githubLink.length > 0 && (
                       <div className="dropdown">
                         <button
@@ -645,7 +666,7 @@ function Portfolio() {
             <div className="col-lg-10 col-md-12 ">
               <div className="contact-wrapper">
                 <div className="row g-0">
-                  <div className="col-lg-5 col-md-12 "> 
+                  <div className="col-lg-5 col-md-12 ">
                     <div className="contact-info ">
                       <h3>Contact Information</h3>
                       <p className="contact-description">
