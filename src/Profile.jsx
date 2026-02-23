@@ -21,7 +21,7 @@ const projectsData = [
       "https://github.com/vishalsonwane951/Seoul-Brew-Cafe-Backend"
     ],
     featured: true,
-    icon: "bi-cup-straw" 
+    icon: "bi-cup-hot" 
 
   },
   {
