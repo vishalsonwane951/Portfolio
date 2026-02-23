@@ -9,6 +9,22 @@ const SESSION_KEY = "visitor_session_active";
 
 const projectsData = [
   {
+
+    title: "Seoul Brew Cafe Web Application",
+    description: "Full-stack cafe management and ordering platform with dynamic UI, menu display, online reservation, and order tracking. Features include menu management, cart & checkout system, admin panel, and responsive design.",
+    skills: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "CSS", "Axios"],
+    progress: 100,
+    status: "Completed",
+    projectLink: "https://seoulbrewcafes.netlify.app", 
+    githubLink: [
+      "https://github.com/vishalsonwane951/Seoul-Brew-Cafe-Frontend",
+      "https://github.com/vishalsonwane951/Seoul-Brew-Cafe-Backend"
+    ],
+    featured: true,
+    icon: "bi-cup-straw" 
+
+  },
+  {
     title: "Tours & Travel Web Application",
     description: "Full-stack travel booking platform with dynamic UI, REST APIs, and secure authentication. Features include package management, booking system, user reviews, and payment integration.",
     skills: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Stripe"],
@@ -411,13 +427,13 @@ function Portfolio() {
                 title: "Frontend Development",
                 icon: "bi-palette-fill",
                 color: "purple",
-                skills: ["React.js", "React Native", "JavaScript","Expo", "HTML5", "CSS3","Tailwind CSS", "Bootstrap", "EJS"]
+                skills: ["React.js", "React Native", "JavaScript", "Expo", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "EJS"]
               },
               {
                 title: "Database & Tools",
                 icon: "bi-database-fill",
                 color: "green",
-                skills: ["MongoDB", "Mongoose", "Git", "GitHub", "Postman", "npm", "React Route","VS Code"]
+                skills: ["MongoDB", "Mongoose", "Git", "GitHub", "Postman", "npm", "React Route", "VS Code"]
               },
               {
                 title: "Core Concepts",
