@@ -1363,45 +1363,45 @@ function useContactForm() {
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const submit = async (e) => {
-  e.preventDefault();
-  setStatus("sending");
-  setErrMsg("");
-  try {
-    const res = await fetch(`${API_BASE}/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    e.preventDefault();
+    setStatus("sending");
+    setErrMsg("");
+    try {
+      const res = await fetch(`${API_BASE}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-    // Parse safely — rate-limit responses aren't always JSON
-    let data;
-    const contentType = res.headers.get("content-type") || "";
-    if (contentType.includes("application/json")) {
-      data = await res.json();
-    } else {
-      const text = await res.text();
-      data = { success: false, message: text || "Request failed" };
+      // Parse safely — rate-limit responses aren't always JSON
+      let data;
+      const contentType = res.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        const text = await res.text();
+        data = { success: false, message: text || "Request failed" };
+      }
+
+      if (res.status === 429) {
+        const retryAfter = res.headers.get("RateLimit-Reset")
+          || res.headers.get("Retry-After");
+        const wait = retryAfter
+          ? `Try again in ${Math.ceil((retryAfter * 1000 - Date.now()) / 60000)} minute(s).`
+          : "Try again in 15 minutes.";
+        throw new Error(`Too many messages sent. ${wait}`);
+      }
+
+      if (!data.success) throw new Error(data.message);
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus(null), 5000);
+    } catch (err) {
+      setStatus("error");
+      setErrMsg(err.message || "Something went wrong. Please try again.");
+      setTimeout(() => setStatus(null), 5000);
     }
-
-    if (res.status === 429) {
-      const retryAfter = res.headers.get("RateLimit-Reset") 
-        || res.headers.get("Retry-After");
-      const wait = retryAfter
-        ? `Try again in ${Math.ceil((retryAfter * 1000 - Date.now()) / 60000)} minute(s).`
-        : "Try again in 15 minutes.";
-      throw new Error(`Too many messages sent. ${wait}`);
-    }
-
-    if (!data.success) throw new Error(data.message);
-    setStatus("success");
-    setForm({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus(null), 5000);
-  } catch (err) {
-    setStatus("error");
-    setErrMsg(err.message || "Something went wrong. Please try again.");
-    setTimeout(() => setStatus(null), 5000);
-  }
-};
+  };
 
   return { form, set, submit, status, errMsg };
 }
@@ -1417,6 +1417,8 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [openFeature, setOpenFeature] = useState(null);
   const [heroVisible, setHeroVisible] = useState(false);
+  const [showAdmin, setShowAdmin] = useState(false);
+
 
   // Visitor counter
   useEffect(() => {
@@ -1736,12 +1738,31 @@ export default function Portfolio() {
       <nav className={`pf-nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-inner">
           <div className="nav-brand" onClick={() => scrollTo("home")}>
-            <div className="brand-orb">VS</div>
+            <div
+              className="brand-orb"
+              onClick={(e) => {
+                e.stopPropagation();
+                const now = Date.now();
+                if (!window._orbClicks) window._orbClicks = [];
+                window._orbClicks = window._orbClicks.filter(t => now - t < 1000);
+                window._orbClicks.push(now);
+                if (window._orbClicks.length >= 3) {
+                  window._orbClicks = [];
+                  setShowAdmin(prev => !prev);
+                }
+              }}
+            >
+              VS
+            </div>
             <span className="brand-name">{hero?.name || "Vishal Sonwane"}</span>
           </div>
           <div className="nav-links">
             {navItems.map((i) => (
-              <button key={i} className={`nav-link ${activeSection === i ? "active" : ""}`} onClick={() => scrollTo(i)}>
+              <button
+                key={i}
+                className={`nav-link ${activeSection === i ? "active" : ""}`}
+                onClick={() => scrollTo(i)}
+              >
                 {i.charAt(0).toUpperCase() + i.slice(1)}
               </button>
             ))}
@@ -1751,6 +1772,14 @@ export default function Portfolio() {
               <div className="visitor-dot" />
               <span>{visitorCount > 0 ? visitorCount.toLocaleString() : "—"}</span>
             </div>
+            {showAdmin && (
+              <button
+                className="nav-link admin-btn"
+                onClick={() => window.location.href = "/admin"}
+              >
+                Admin
+              </button>
+            )}
             <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
           </div>
         </div>
