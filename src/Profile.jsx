@@ -1363,26 +1363,45 @@ function useContactForm() {
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const submit = async (e) => {
-    e.preventDefault();
-    setStatus("sending");
-    setErrMsg("");
-    try {
-      const res = await fetch(`${API_BASE}/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!data.success) throw new Error(data.message);
-      setStatus("success");
-      setForm({ name: "", email: "", message: "" });
-      setTimeout(() => setStatus(null), 5000);
-    } catch (err) {
-      setStatus("error");
-      setErrMsg(err.message || "Something went wrong. Please try again.");
-      setTimeout(() => setStatus(null), 5000);
+  e.preventDefault();
+  setStatus("sending");
+  setErrMsg("");
+  try {
+    const res = await fetch(`${API_BASE}/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    // Parse safely — rate-limit responses aren't always JSON
+    let data;
+    const contentType = res.headers.get("content-type") || "";
+    if (contentType.includes("application/json")) {
+      data = await res.json();
+    } else {
+      const text = await res.text();
+      data = { success: false, message: text || "Request failed" };
     }
-  };
+
+    if (res.status === 429) {
+      const retryAfter = res.headers.get("RateLimit-Reset") 
+        || res.headers.get("Retry-After");
+      const wait = retryAfter
+        ? `Try again in ${Math.ceil((retryAfter * 1000 - Date.now()) / 60000)} minute(s).`
+        : "Try again in 15 minutes.";
+      throw new Error(`Too many messages sent. ${wait}`);
+    }
+
+    if (!data.success) throw new Error(data.message);
+    setStatus("success");
+    setForm({ name: "", email: "", message: "" });
+    setTimeout(() => setStatus(null), 5000);
+  } catch (err) {
+    setStatus("error");
+    setErrMsg(err.message || "Something went wrong. Please try again.");
+    setTimeout(() => setStatus(null), 5000);
+  }
+};
 
   return { form, set, submit, status, errMsg };
 }
