@@ -1,11 +1,16 @@
-import './App.css'
-import './index.css'
+import { Routes, Route } from 'react-router-dom'
 import Portfolio from './Profile'
+
+// Example extra components
+import VSAdminPanel from './Admin'
 
 function App() {
   return (
     <>
-      <Portfolio />
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/admin" element={<VSAdminPanel />} />
+      </Routes>
     </>
   )
 }

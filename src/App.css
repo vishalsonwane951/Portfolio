@@ -571,3 +571,17 @@ footer {
 .contact-form button:hover {
   background-color: #0056b3;
 }
+
+
+.admin-btn {
+  color: #f59e0b;        /* amber accent — distinct from normal nav links */
+  border: 1px solid #f59e0b33;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+}
+
+.admin-btn:hover {
+  background: #f59e0b1a;
+}
