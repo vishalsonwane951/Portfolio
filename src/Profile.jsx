@@ -1202,6 +1202,7 @@
 
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
@@ -1767,9 +1768,9 @@ export default function Portfolio() {
         title=""
       >
         {showAdmin ? (
-          <a href="/admin" className="admin-pill-link">
+          <Link to="/admin" className="admin-pill-link">
             ⚙ Admin
-          </a>
+          </Link>
         ) : (
           <>
             <div className="visitor-dot" />
