@@ -1734,56 +1734,55 @@ export default function Portfolio() {
         }
       `}</style>
 
-      {/* ── NAV ─────────────────────────────────────────────────────────────── */}
-      <nav className={`pf-nav ${scrolled ? "scrolled" : ""}`}>
-        <div className="nav-inner">
-          <div className="nav-brand" onClick={() => scrollTo("home")}>
-            <div
-              className="brand-orb"
-              onClick={(e) => {
-                e.stopPropagation();
-                const now = Date.now();
-                if (!window._orbClicks) window._orbClicks = [];
-                window._orbClicks = window._orbClicks.filter(t => now - t < 1000);
-                window._orbClicks.push(now);
-                if (window._orbClicks.length >= 3) {
-                  window._orbClicks = [];
-                  setShowAdmin(prev => !prev);
-                }
-              }}
-            >
-              VS
-            </div>
-            <span className="brand-name">{hero?.name || "Vishal Sonwane"}</span>
-          </div>
-          <div className="nav-links">
-            {navItems.map((i) => (
-              <button
-                key={i}
-                className={`nav-link ${activeSection === i ? "active" : ""}`}
-                onClick={() => scrollTo(i)}
-              >
-                {i.charAt(0).toUpperCase() + i.slice(1)}
-              </button>
-            ))}
-          </div>
-          <div className="nav-right">
-            <div className="visitor-pill">
-              <div className="visitor-dot" />
-              <span>{visitorCount > 0 ? visitorCount.toLocaleString() : "—"}</span>
-            </div>
-            {showAdmin && (
-              <button
-                className="nav-link admin-btn"
-                onClick={() => window.location.href = "/admin"}
-              >
-                Admin
-              </button>
-            )}
-            <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
-          </div>
-        </div>
-      </nav>
+     {/* ── NAV ─────────────────────────────────────────────────────────────── */}
+<nav className={`pf-nav ${scrolled ? "scrolled" : ""}`}>
+  <div className="nav-inner">
+
+    {/* Brand */}
+    <div className="nav-brand" onClick={() => scrollTo("home")}>
+      <div className="brand-orb">VS</div>
+      <span className="brand-name">{hero?.name || "Vishal Sonwane"}</span>
+    </div>
+
+    {/* Nav links */}
+    <div className="nav-links">
+      {navItems.map((i) => (
+        <button
+          key={i}
+          className={`nav-link ${activeSection === i ? "active" : ""}`}
+          onClick={() => scrollTo(i)}
+        >
+          {i.charAt(0).toUpperCase() + i.slice(1)}
+        </button>
+      ))}
+    </div>
+
+    {/* Right side */}
+    <div className="nav-right">
+
+      {/* Double-click to swap between visitor count and admin link */}
+      <div
+        className="visitor-pill"
+        onDoubleClick={() => setShowAdmin(prev => !prev)}
+        title=""
+      >
+        {showAdmin ? (
+          <a href="/admin" className="admin-pill-link">
+            ⚙ Admin
+          </a>
+        ) : (
+          <>
+            <div className="visitor-dot" />
+            <span>{visitorCount > 0 ? visitorCount.toLocaleString() : "—"}</span>
+          </>
+        )}
+      </div>
+
+      <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+    </div>
+
+  </div>
+</nav>
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         {navItems.map((i) => (
           <div key={i} className={`mobile-link ${activeSection === i ? "active" : ""}`} onClick={() => scrollTo(i)}>

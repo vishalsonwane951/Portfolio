@@ -572,16 +572,23 @@ footer {
   background-color: #0056b3;
 }
 
-
-.admin-btn {
-  color: #f59e0b;        /* amber accent — distinct from normal nav links */
-  border: 1px solid #f59e0b33;
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 0.8rem;
-  transition: background 0.2s;
+.visitor-pill {
+  cursor: default;
+  user-select: none;
 }
 
-.admin-btn:hover {
-  background: #f59e0b1a;
+.admin-pill-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.45);  /* subtle — easy to miss */
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.admin-pill-link:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
