@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const API = "http://localhost:5000/api";
+const API = "https://portfolio-backend-cvdm.onrender.com/api";
 
 // ── STYLES ────────────────────────────────────────────────────────────────────
 // All selectors are prefixed with .vs-admin to avoid conflicts with portfolio CSS
