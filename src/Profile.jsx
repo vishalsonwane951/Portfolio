@@ -1767,9 +1767,9 @@ export default function Portfolio() {
         title=""
       >
         {showAdmin ? (
-          <a href="/admin" className="admin-pill-link">
+          <Link to="/admin" className="admin-pill-link">
             ⚙ Admin
-          </a>
+          </Link>
         ) : (
           <>
             <div className="visitor-dot" />
